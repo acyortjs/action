@@ -1,0 +1,21 @@
+name: AcyOrt Deploy
+
+on:
+  issues:
+    types: [opened, edited, deleted, transferred, closed, reopened, labeled, unlabeled, milestoned, demilestoned]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Node
+      uses: actions/setup-node@v1
+      
+    - name: Test
+      run: |
+        node -v
+        npm -v
